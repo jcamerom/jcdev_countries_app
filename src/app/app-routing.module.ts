@@ -1,3 +1,4 @@
+import { ContactComponent } from './shared/pages/contact/contact.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,7 +8,7 @@ import { HomePageComponent } from './shared/pages/homePage/home-page.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomePageComponent
   },
   {
@@ -15,8 +16,16 @@ const routes: Routes = [
     component: AboutPageComponent
   },
   {
+    path: 'contact',
+    component: ContactComponent
+  },
+  {
+    path: 'countries',
+    loadChildren: () => import('./countries/countries.module').then(m => m.CountriesModule)
+  },
+  {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'countries',
   }
 ];
 
