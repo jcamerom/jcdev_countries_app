@@ -1,0 +1,14 @@
+<!--
+  Con este input:
+  - El placeholder es dinámico según el valor de la variable 'placeholder'
+  - Hay un evento de entrada que se emite cuando se presiona Enter en el input
+  - Hay una referencia al input para poder emitir el value del evento al componente padre mediante el @Output
+-->
+
+<input
+  type="text"
+  [placeholder]="placeholder"
+  class="form-control"
+  (keyup.enter)="emitValue(txtInput.value)"
+  #txtInput
+>

@@ -1,8 +1,36 @@
+<h2>Por capital</h2>
+<hr>
+
 <div class="row">
 
   <div class="col">
-    <!-- Search box -->
+    <!--
+      Componente para buscar países por capital:
+      - Recibe el evento del hijo que contiene el valor del input.
+      - Activa el método del padre para buscar los países.
+      - Suscribe al padre para recibir los resultados de la búsqueda.
+      - $event tiene: $ para el valor del input, y event es un objeto que contiene la información del evento.
+      - Siempre se escribe $event.target.value para obtener el valor del input.
+    -->
+    <shared-search-box
+      placeholder="Buscar por capital"
+      (onValue)="searchByCapital($event)"
+    >
+    </shared-search-box>
 
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col">
+    <hr>
+    <ul>
+      <li *ngFor="let country of countries">
+        {{ country.capital }} - ({{ country.population }})
+      </li>
+    </ul>
   </div>
 
 </div>

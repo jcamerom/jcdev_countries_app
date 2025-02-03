@@ -1,8 +1,11 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';import { AppComponent } from './app.component';
+
 
 
 @NgModule({
@@ -11,10 +14,11 @@ import { SharedModule } from './shared/shared.module';import { AppComponent } fr
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule,
+    BrowserModule,  // HttpClientModule for making HTTP requests
     SharedModule
   ],
   providers: [
+    provideHttpClient(),
     provideClientHydration()
   ],
   bootstrap: [AppComponent]
